@@ -10,6 +10,17 @@ namespace Drupal\event_utils\Services;
  */
 class EventService {
 
+  public function getOutdatedEvents(){
+    $query = \Drupal::entityQuery('node')->condition('type', 'event');
+    $query->condition('field_date_end', date('Y-m-d h:i:s'),'<');
+    $query->sort('field_date_start', 'ASC');
+    $events_id = $query->execute();
+    $events = \Drupal\node\Entity\Node::loadMultiple($events_id);
+
+    return $events;
+
+  }
+
   //Get all content of type event, ordered by starting date
   public function getEvents(){
     

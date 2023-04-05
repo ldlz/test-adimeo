@@ -1,0 +1,4 @@
+administer event_cron configuration:
+  title: 'Administer event_cron configuration'
+  description: 'Optional description.'
+  restrict access: true

@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for event_cron module.
+ *
+ * @DCG
+ * This file is no longer required in Drupal 8.
+ * @see https://www.drupal.org/node/2217931
+ */
+/**
+ * Implements hook_cron().
+ */
+function event_cron_cron() {  
+// Get queue
+$queue = \Drupal::queue('event_cron_queueworker');
+//Get event_utils service
+$eventService = \Drupal::service('event_utils.event_service');
+// Get all the outdated events 
+$outdated_events = $eventService->getOutdatedEvents();
+// Create an item for the queueworker to process for each outdated event
+foreach ( $outdated_events as $event){
+    // Create item to queue.
+    $queue->createItem($event);
+}
+
+
+
+}
+  

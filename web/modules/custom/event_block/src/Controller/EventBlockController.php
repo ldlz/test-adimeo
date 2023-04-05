@@ -28,9 +28,7 @@ class EventBlockController extends ControllerBase {
   public function test() {
 
     
-    /*
-   $eligible_events = $this->eventService->getEligibleEvents();
-    
+      /*
    
     $currentEventType = "Salon";
 
