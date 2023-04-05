@@ -1,6 +1,6 @@
 name: event_block
 type: module
-description: The description.
+description: Display a custom block on an event detail page with suggestion of related events to come.
 package: Custom
 core: 8.x
 core_version_requirement: ^8 || ^9

@@ -1,0 +1,13 @@
+{# event_block/templates/event-block-template.html.twig #}
+<p>D'autres évenement qui pourrait vous interesser :</p>
+ 
+{% for event in events %}
+
+   <b> {{ event.label }} </b></br>
+   <a href="http://localhost/test_adimeo/web/taxonomy/term/{{event.type_taxo}}"> {{ event.type}} </a> </br>
+   Date de debut : {{event.start_date|date("F jS \\a\\t g:ia") }} </br>
+   Date de fin : {{event.end_date|date("F jS \\a\\t g:ia") }} </br>
+    <a href="http://localhost/test_adimeo/web/node/{{event.nid}}"> en savoir plus </a> </br></br>
+
+{% endfor %}
+

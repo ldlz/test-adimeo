@@ -1,6 +1,0 @@
-event_block.settings_form:
-  title: event_block
-  description: Configure event_block.
-  parent: system.admin_config_system
-  route_name: event_block.settings_form
-  weight: 10

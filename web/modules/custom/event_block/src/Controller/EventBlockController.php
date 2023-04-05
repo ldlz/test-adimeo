@@ -27,54 +27,51 @@ class EventBlockController extends ControllerBase {
 
   public function test() {
 
-    //$Events = $this->eventService->getEvents();
-
-   // $current_event_type = $this->eventService->getCurrentEventType();
-
-    $current_date = strtotime(date('m/d/Y h:i:s '));
-   //$current_date = '05/29/2020 05:00:51';
-    $test_date = strtotime("2020-05-29T05:00:51");
-
-    //var_dump($current_date>$test_date);
     
-    //die;
-
-    $nids = \Drupal::entityQuery('node')->condition('type','event')->execute();
-    $nodes =  \Drupal\node\Entity\Node::loadMultiple($nids);
-
-    foreach ($nodes as $node) {
-      //Get the event type field from the content type
-      $date = $node->get('field_date_end')->getValue();
-     
-      //var_dump($date[0]);die;
-      $events[$node->id()] =  strtotime($date[0]['value']);
-      
-    }
+    /*
+   $eligible_events = $this->eventService->getEligibleEvents();
     
-    asort($events);
    
-    foreach($events as $key =>$value){
-      $sorted_events[] = \Drupal\node\Entity\Node::load($key);
-    }
-/*
-    foreach ($Events as $event) {
-      if ($this->eventService->getEventType($event) !== $current_event_type){
-        //evn pas meme type
+    $currentEventType = "Salon";
 
+    
+    
+    $displayable_events =array();
+
+    foreach($eligible_events as $event){
+      if($this->eventService->getEventType($event) == $currentEventType){
+        $displayable_events[] = $event;
       }
-
-      if(strtotime($event->get('field_date_end'))<$cuurent_date ){
-        //L'evenement est pass
+      if(count($displayable_events)==3){
+        break;
       }
+    }
+
+
+
+    if(count($displayable_events) < 3 ){
+
+      foreach($eligible_events as $event ){
+        if($this->eventService->getEventType($event) !== $currentEventType ){
+          $displayable_events[] = $event;
+        }
+
+        if(count($displayable_events) == 3){
+          break;
+        }
+      }
+    }
+
+    $displayable_events_sorted = $this->eventService->sortEventsByDate($displayable_events);
+
+    foreach($displayable_events_sorted as $event){
+      $test[] = $event->label()." - ".$this->eventService->getEventType($event)." - ".$event->get('field_date_start')->getValue()[0]['value'];
+    }
 
     
-    }
-    
-*/
-    
-  
-    var_dump($titles);
-    die;
+    var_dump($test);die;
+
+    */
   
   }
 

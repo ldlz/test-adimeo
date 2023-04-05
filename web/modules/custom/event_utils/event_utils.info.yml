@@ -1,6 +1,6 @@
 name: event_utils
 type: module
-description: The description.
+description: Service where are located functions related to event operations that might be reused in the CRON module.
 package: Custom
 core: 8.x
 core_version_requirement: ^8 || ^9
