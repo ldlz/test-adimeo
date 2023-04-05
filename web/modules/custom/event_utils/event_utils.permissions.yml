@@ -1,0 +1,4 @@
+administer event_utils configuration:
+  title: 'Administer event_utils configuration'
+  description: 'Optional description.'
+  restrict access: true

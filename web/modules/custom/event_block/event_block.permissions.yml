@@ -1,0 +1,4 @@
+administer event_block configuration:
+  title: 'Administer event_block configuration'
+  description: 'Optional description.'
+  restrict access: true

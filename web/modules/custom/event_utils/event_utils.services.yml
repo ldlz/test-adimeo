@@ -1,0 +1,4 @@
+services:
+  event_utils.event_service:
+    class: Drupal\event_utils\Services\EventService
+    
